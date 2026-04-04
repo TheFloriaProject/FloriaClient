@@ -26,15 +26,17 @@ class BooleanSettingDelegate(
     val id: String,
     val name: String,
     val default: Boolean,
+    val onChange: (Boolean) -> Unit,
 ) : ReadOnlyProperty<ClientModule, BooleanSetting> {
     private lateinit var setting: BooleanSetting
 
     operator fun provideDelegate(thisRef: ClientModule, property: KProperty<*>): BooleanSettingDelegate {
-        setting = BooleanSetting(id, name, default).also { thisRef.settings.add(it) }
+        setting = BooleanSetting(id, name, default, onChange).also { thisRef.settings.add(it) }
         return this
     }
 
     override fun getValue(thisRef: ClientModule, property: KProperty<*>): BooleanSetting = setting
 }
 
-fun bool(id: String, name: String, default: Boolean = false) = BooleanSettingDelegate(id, name, default)
+fun bool(id: String, name: String, default: Boolean = false, onChange: (Boolean) -> Unit = {}) =
+    BooleanSettingDelegate(id, name, default, onChange)

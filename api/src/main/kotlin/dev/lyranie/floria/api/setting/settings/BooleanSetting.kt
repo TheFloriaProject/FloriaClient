@@ -26,6 +26,7 @@ class BooleanSetting(
     id: String,
     name: String,
     @Expose var enabled: Boolean = false,
+    val onChange: (Boolean) -> Unit
 ) : ClientSetting(
     id,
     name,
@@ -33,6 +34,7 @@ class BooleanSetting(
 ) {
     fun toggle() {
         enabled = !enabled
+        onChange.invoke(enabled)
     }
 
     override fun fromJson(json: JsonObject) {

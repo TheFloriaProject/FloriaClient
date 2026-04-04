@@ -29,6 +29,7 @@ class RangeSetting(
     @Expose val max: Double,
     @Expose val step: Double,
     @Expose var value: Double,
+    val onChange: (Double) -> Unit
 ) : ClientSetting(
     id,
     name,
@@ -43,6 +44,7 @@ class RangeSetting(
         }
 
         this.value = snapped.coerceIn(min, max)
+        onChange.invoke(value)
     }
 
     override fun fromJson(json: JsonObject) {

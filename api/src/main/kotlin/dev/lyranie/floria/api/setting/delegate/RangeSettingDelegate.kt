@@ -29,16 +29,24 @@ class RangeSettingDelegate(
     val max: Double,
     val step: Double,
     val default: Double,
+    val onChange: (Double) -> Unit,
 ) : ReadOnlyProperty<ClientModule, RangeSetting> {
     private lateinit var setting: RangeSetting
 
     operator fun provideDelegate(thisRef: ClientModule, property: KProperty<*>): RangeSettingDelegate {
-        setting = RangeSetting(id, name, min, max, step, default).also { thisRef.settings.add(it) }
+        setting = RangeSetting(id, name, min, max, step, default, onChange).also { thisRef.settings.add(it) }
         return this
     }
 
     override fun getValue(thisRef: ClientModule, property: KProperty<*>): RangeSetting = setting
 }
 
-fun range(id: String, name: String, min: Double, max: Double, step: Double = 0.1, default: Double = 1.0) =
-    RangeSettingDelegate(id, name, min, max, step, default)
+fun range(
+    id: String,
+    name: String,
+    min: Double,
+    max: Double,
+    step: Double = 0.1,
+    default: Double = 1.0,
+    onChange: (Double) -> Unit = {},
+) = RangeSettingDelegate(id, name, min, max, step, default, onChange)
