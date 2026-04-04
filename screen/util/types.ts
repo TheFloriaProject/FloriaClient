@@ -78,6 +78,12 @@ export type ModuleGroup = {
     modules: Module[]
 }
 
+export type Notification = {
+    type: 'INFO' | 'WARNING' | 'ERROR'
+    title: string
+    description?: string
+}
+
 // LB
 export interface TextComponent {
     type?: string;

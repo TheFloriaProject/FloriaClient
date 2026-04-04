@@ -21,13 +21,15 @@ import dev.lyranie.floria.category.CategoryManager
 import dev.lyranie.floria.command.CommandManager
 import dev.lyranie.floria.module.ModuleManager
 import dev.lyranie.floria.network.GuiServer
-import dev.lyranie.floria.render.Hud
+import dev.lyranie.floria.render.overlay.Hud
+import dev.lyranie.floria.render.overlay.NotificationOverlay
 import dev.lyranie.floria.render.screen.ClientClickGuiScreen
 import net.fabricmc.api.ClientModInitializer
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientLifecycleEvents
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper
 import net.fabricmc.fabric.api.client.rendering.v1.hud.HudElementRegistry
+import net.fabricmc.fabric.api.client.screen.v1.ScreenEvents
 import net.minecraft.client.option.KeyBinding
 import net.minecraft.client.util.InputUtil
 import net.minecraft.util.Identifier
@@ -53,6 +55,13 @@ class FloriaClient : ClientModInitializer {
         HudElementRegistry.addLast(Identifier.of(Floria.MOD_ID, "hud")) { drawContext, _ ->
             Hud.init(drawContext)
             Hud.draw(drawContext)
+        }
+
+        ScreenEvents.BEFORE_INIT.register { _, screen, _, _ ->
+            ScreenEvents.afterRender(screen).register { _, drawContext, _, _, _ ->
+                NotificationOverlay.init(drawContext)
+                NotificationOverlay.draw(drawContext)
+            }
         }
 
         val clickGuiKey = KeyBindingHelper.registerKeyBinding(

@@ -15,34 +15,17 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-package dev.lyranie.floria.render
+package dev.lyranie.floria.render.overlay
 
+import dev.lyranie.floria.render.ClientOverlay
 import dev.lyranie.floria.render.screen.ClientHudScreen
 import net.minecraft.client.gui.DrawContext
 
-object Hud {
-    var hudScreen: ClientHudScreen? = null
-
-    private var lastWidth = -1
-    private var lastHeight = -1
-
+object Hud : ClientOverlay() {
     fun init(drawContext: DrawContext) {
-        if (hudScreen != null) return
+        if (instance != null) return
 
-        hudScreen = ClientHudScreen()
-        hudScreen?.init(drawContext.scaledWindowWidth, drawContext.scaledWindowHeight)
-    }
-
-    fun draw(drawContext: DrawContext) {
-        val currentWidth = drawContext.scaledWindowWidth
-        val currentHeight = drawContext.scaledWindowHeight
-
-        if (currentWidth != lastWidth || currentHeight != lastHeight) {
-            hudScreen?.resize(currentWidth, currentHeight)
-            lastWidth = currentWidth
-            lastHeight = currentHeight
-        }
-
-        hudScreen?.render(drawContext, 0, 0, 0f)
+        instance = ClientHudScreen()
+        instance?.init(drawContext.scaledWindowWidth, drawContext.scaledWindowHeight)
     }
 }

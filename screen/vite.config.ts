@@ -16,6 +16,7 @@ export default defineConfig({
                 hud: resolve(__dirname, 'screen/hud/index.html'),
                 multiplayer: resolve(__dirname, 'screen/multiplayer/index.html'),
                 title: resolve(__dirname, 'screen/title/index.html'),
+                notification: resolve(__dirname, 'screen/notification/index.html'),
             },
             output: {
                 entryFileNames: 'assets/[name].js',

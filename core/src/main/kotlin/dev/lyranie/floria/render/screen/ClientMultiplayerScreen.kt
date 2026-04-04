@@ -24,6 +24,7 @@ import dev.lyranie.floria.mixin.accessor.ServerListAccessor
 import dev.lyranie.floria.network.NetworkResponse
 import dev.lyranie.floria.network.SseRegistry
 import dev.lyranie.floria.render.ClientScreen
+import dev.lyranie.floria.util.info
 import io.netty.channel.ChannelHandlerContext
 import io.netty.handler.codec.http.FullHttpRequest
 import io.netty.handler.codec.http.HttpResponseStatus
@@ -79,8 +80,6 @@ class ClientMultiplayerScreen : ClientScreen("multiplayer") {
 
         val servers = list.getServers()
         if (servers.isEmpty()) return NetworkResponse(ctx, HttpResponseStatus.OK, servers, gson = Floria.globalGson)
-
-        println(servers)
 
         val activePinger = MultiplayerServerListPinger()
         pinger = activePinger
@@ -175,7 +174,7 @@ class ClientMultiplayerScreen : ClientScreen("multiplayer") {
 
             val match = serverList.getServers().find { it.address == targetAddress && it.name == targetName }
             if (match != null) {
-                // todo: create notification: server exists
+                info("Did not create server: server exists")
             } else {
                 serverList.add(serverInfo, false)
                 serverList.saveFile()

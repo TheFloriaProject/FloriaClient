@@ -19,7 +19,7 @@ package dev.lyranie.floria.network
 
 import dev.lyranie.floria.Floria
 import dev.lyranie.floria.render.ClientScreen
-import dev.lyranie.floria.render.Hud
+import dev.lyranie.floria.render.overlay.Hud
 import io.netty.buffer.Unpooled
 import io.netty.channel.ChannelHandlerContext
 import io.netty.channel.SimpleChannelInboundHandler
@@ -83,7 +83,7 @@ class ClientScreenHandler : SimpleChannelInboundHandler<FullHttpRequest>() {
 
     private fun handleAction(ctx: ChannelHandlerContext, uri: String, msg: FullHttpRequest) {
         val minecraft = MinecraftClient.getInstance()
-        val screen = minecraft.currentScreen as? ClientScreen ?: Hud.hudScreen ?: return
+        val screen = minecraft.currentScreen as? ClientScreen ?: Hud.instance ?: return
 
         screen.api(uri.removePrefix("/api/"), ctx, msg).send()
     }
