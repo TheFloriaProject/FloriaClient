@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+:root {
+    --bg-color: #38c5d8;
+    --fg-primary: #fe7f4f;
+    --fg-secondary: #b43d1f;
+    --radius-primary: 0.5vh;
+    --radius-secondary: 1vh;
+}
+
+* {
+    font-family: "Quantico", sans-serif;
+    font-weight: bolder;
+    font-style: italic;
+    user-select: none;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.body {
+    background-color: var(--bg-color);
+    width: 100vw;
+    height: 100vh;
+}

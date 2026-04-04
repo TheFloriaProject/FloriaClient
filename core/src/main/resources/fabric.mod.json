@@ -1,0 +1,27 @@
+{
+    "schemaVersion": 1,
+    "id": "floria",
+    "version": "${version}",
+    "name": "Floria",
+    "license": "GPL-3.0",
+    "environment": "client",
+    "entrypoints": {
+        "client": [
+            "dev.lyranie.floria.FloriaClient"
+        ],
+        "main": [
+            "dev.lyranie.floria.Floria"
+        ]
+    },
+    "mixins": [
+        "floria.mixins.json"
+    ],
+    "depends": {
+        "fabricloader": ">=${loader_version}",
+        "fabric-language-kotlin": ">=${kotlin_loader_version}",
+        "fabric-api": "*",
+        "minecraft": "${minecraft_version}",
+        "mcef": ">=${mcef_version}"
+    },
+    "icon": "floria.png"
+}

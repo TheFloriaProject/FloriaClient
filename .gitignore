@@ -1,0 +1,15 @@
+.gradle
+build
+.idea
+.kotlin
+.env
+
+api/.gradle
+api/build
+
+core/.gradle
+core/build
+core/run
+
+screen/dist
+screen/node_modules
