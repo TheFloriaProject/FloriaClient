@@ -28,8 +28,8 @@ jobs:
             -   name: Build mod
                 run: ./gradlew build
                 env:
-                    REPSY_USERNAME: ${{ secrets.REPSY_USERNAME }}
-                    REPSY_PASSWORD: ${{ secrets.REPSY_PASSWORD }}
+                    REPSY_USERNAME: unused
+                    REPSY_PASSWORD: unused
 
             -   name: Get mod version and short hash
                 id: meta
