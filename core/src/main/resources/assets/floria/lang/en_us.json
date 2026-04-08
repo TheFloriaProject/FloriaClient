@@ -24,6 +24,7 @@
     "module.floria.autoWalk": "Auto Walk",
     "module.floria.chestStealer": "Chest Stealer",
     "module.floria.dataSize": "Data Size",
+    "module.floria.blockEsp": "Block ESP",
 
     "description.floria.autoArmor": "Automatically equips the best armor in your inventory",
     "description.floria.autoLeave": "Automatically disconnects you when your health goes below the specified value",
@@ -48,6 +49,7 @@
     "description.floria.autoWalk": "Automatically walks forward for you",
     "description.floria.chestStealer": "Automatically takes every item out of a chest",
     "description.floria.dataSize": "Displays the size of the data stored in the container item",
+    "description.floria.blockEsp": "Renders an outline around the selected blocks",
 
     "key.category.floria.main": "Floria",
 

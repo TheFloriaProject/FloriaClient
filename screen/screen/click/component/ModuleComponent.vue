@@ -1,10 +1,11 @@
 <script lang="ts" setup>
 import {ref} from "vue";
-import {BooleanSetting, EnumSetting, Module, RangeSetting, Setting} from "../../../util/types";
+import {BooleanSetting, ColorSetting, EnumSetting, Module, RangeSetting, Setting} from "../../../util/types";
 import BooleanSettingComponent from "./setting/BooleanSettingComponent.vue";
 import RangeSettingComponent from "./setting/RangeSettingComponent.vue";
 import EnumSettingComponent from "./setting/EnumSettingComponent.vue";
 import {go} from "../../../util/functions";
+import ColorSettingComponent from "./setting/ColorSettingComponent.vue";
 
 const props = defineProps<{
     module: Module
@@ -42,6 +43,8 @@ async function updateSetting(setting: Setting) {
         <RangeSettingComponent v-if="setting.type === 'RANGE'" :setting="setting as RangeSetting"
                                :update="async () => await updateSetting(setting)"/>
         <EnumSettingComponent v-if="setting.type === 'ENUM'" :setting="setting as EnumSetting"
+                              :update="async () => await updateSetting(setting)"/>
+        <ColorSettingComponent v-if="setting.type === 'COLOR'" :setting="setting as ColorSetting"
                               :update="async () => await updateSetting(setting)"/>
     </div>
 </template>

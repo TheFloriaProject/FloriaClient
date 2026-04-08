@@ -42,6 +42,7 @@ import dev.lyranie.floria.module.movement.SpeedModule
 import dev.lyranie.floria.module.movement.SprintModule
 import dev.lyranie.floria.module.network.PacketDelayModule
 import dev.lyranie.floria.module.network.PausePacketsModule
+import dev.lyranie.floria.module.render.BlockEspModule
 import dev.lyranie.floria.module.render.CustomGuiModule
 import dev.lyranie.floria.module.render.FullBrightModule
 import dev.lyranie.floria.network.SseRegistry
@@ -97,6 +98,7 @@ object ModuleManager {
         /* render */
         modules.add(FullBrightModule())
         modules.add(CustomGuiModule())
+        modules.add(BlockEspModule())
     }
 
     fun registerAddon(addon: FloriaAddon) {

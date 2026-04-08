@@ -25,7 +25,7 @@ export type Category = {
     y: number
 }
 
-export type Setting = BooleanSetting | RangeSetting | EnumSetting
+export type Setting = BooleanSetting | RangeSetting | EnumSetting | ColorSetting
 
 export type BooleanSetting = {
     type: string
@@ -50,6 +50,13 @@ export type EnumSetting = {
     name: string
     options: string[]
     index: number
+}
+
+export type ColorSetting = {
+    type: string
+    id: string
+    name: string
+    color: number
 }
 
 export type ServerInfo = {

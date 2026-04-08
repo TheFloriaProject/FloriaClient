@@ -24,6 +24,7 @@ import com.google.gson.JsonParseException
 import dev.lyranie.floria.api.setting.ClientSetting
 import dev.lyranie.floria.api.setting.SettingType
 import dev.lyranie.floria.api.setting.settings.BooleanSetting
+import dev.lyranie.floria.api.setting.settings.ColorSetting
 import dev.lyranie.floria.api.setting.settings.EnumSetting
 import dev.lyranie.floria.api.setting.settings.RangeSetting
 import java.lang.reflect.Type
@@ -39,6 +40,7 @@ class ClientSettingDeserializer : JsonDeserializer<ClientSetting> {
             SettingType.BOOLEAN -> context?.deserialize(json, BooleanSetting::class.java)
             SettingType.RANGE -> context?.deserialize(json, RangeSetting::class.java)
             SettingType.ENUM -> context?.deserialize(json, EnumSetting::class.java)
+            SettingType.COLOR -> context?.deserialize(json, ColorSetting::class.java)
         }
     }
 }

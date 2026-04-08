@@ -15,11 +15,17 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-package dev.lyranie.floria.api.setting
+package dev.lyranie.floria.event.events
 
-enum class SettingType {
-    BOOLEAN,
-    ENUM,
-    RANGE,
-    COLOR
-}
+import dev.lyranie.floria.api.event.ClientEvent
+import net.minecraft.client.render.Camera
+import net.minecraft.client.render.VertexConsumerProvider
+import net.minecraft.client.util.math.MatrixStack
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo
+
+class WorldRenderEvent(
+    val matrices: MatrixStack,
+    val consumers: VertexConsumerProvider.Immediate,
+    val camera: Camera,
+    callbackInfo: CallbackInfo,
+) : ClientEvent(callbackInfo)

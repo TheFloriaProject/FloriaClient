@@ -15,11 +15,29 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-package dev.lyranie.floria.api.setting
+package dev.lyranie.floria.api.setting.settings
 
-enum class SettingType {
-    BOOLEAN,
-    ENUM,
-    RANGE,
-    COLOR
+import com.google.gson.JsonObject
+import com.google.gson.annotations.Expose
+import dev.lyranie.floria.api.setting.ClientSetting
+import dev.lyranie.floria.api.setting.SettingType
+
+class ColorSetting(
+    id: String,
+    name: String,
+    @Expose var color: Int = 0xffffff,
+    val onChange: (Int) -> Unit,
+) : ClientSetting(
+    id,
+    name,
+    SettingType.COLOR
+) {
+    fun set(value: Int) {
+        color = value
+        onChange.invoke(color)
+    }
+
+    override fun fromJson(json: JsonObject) {
+        color = json["color"].asInt
+    }
 }
