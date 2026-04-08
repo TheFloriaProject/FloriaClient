@@ -35,8 +35,8 @@ publishing {
         maven {
             url = uri("https://repo.repsy.io/lyranie/maven")
             credentials {
-                username = if (env.REPSY_USERNAME.isPresent) env.REPSY_USERNAME.value else ""
-                password = if (env.REPSY_PASSWORD.isPresent) env.REPSY_PASSWORD.value else ""
+                username = env.fetch("REPSY_USERNAME", "")
+                password = env.fetch("REPSY_PASSWORD", "")
             }
         }
     }
