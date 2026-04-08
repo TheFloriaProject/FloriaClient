@@ -27,9 +27,6 @@ jobs:
 
             -   name: Build mod
                 run: ./gradlew build
-                env:
-                    REPSY_USERNAME: unused
-                    REPSY_PASSWORD: unused
 
             -   name: Get mod version and short hash
                 id: meta
