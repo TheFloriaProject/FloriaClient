@@ -1,5 +1,3 @@
-evaluationDependsOn(":api")
-
 dependencies {
     implementation(project(":api", "namedElements"))
     include(project(":api"))
@@ -11,7 +9,7 @@ dependencies {
 }
 
 base {
-    archivesName.set("floria-${project.property("minecraft_version")}")
+    archivesName.set("floria")
 }
 
 java {
