@@ -29,7 +29,7 @@ else
         | grep -v '^+++' \
         | grep -v '^+#' \
         | sed 's/^+//' \
-        > release_notes.txt
+        > release_notes.txt || true
 fi
 
 echo "Release notes:"
