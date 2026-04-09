@@ -26,6 +26,7 @@ import dev.lyranie.floria.api.setting.SettingType
 import dev.lyranie.floria.api.setting.settings.BooleanSetting
 import dev.lyranie.floria.api.setting.settings.ColorSetting
 import dev.lyranie.floria.api.setting.settings.EnumSetting
+import dev.lyranie.floria.api.setting.settings.ListSetting
 import dev.lyranie.floria.api.setting.settings.RangeSetting
 import java.lang.reflect.Type
 
@@ -41,6 +42,7 @@ class ClientSettingDeserializer : JsonDeserializer<ClientSetting> {
             SettingType.RANGE -> context?.deserialize(json, RangeSetting::class.java)
             SettingType.ENUM -> context?.deserialize(json, EnumSetting::class.java)
             SettingType.COLOR -> context?.deserialize(json, ColorSetting::class.java)
+            SettingType.LIST -> context?.deserialize(json, ListSetting::class.java)
         }
     }
 }

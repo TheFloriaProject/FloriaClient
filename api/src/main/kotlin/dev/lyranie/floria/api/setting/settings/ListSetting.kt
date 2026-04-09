@@ -31,7 +31,7 @@ class ListSetting<T>(
 ) : ClientSetting(
     id,
     name,
-    SettingType.COLOR
+    SettingType.LIST
 ) {
     fun add(value: T) {
         selected.add(value)

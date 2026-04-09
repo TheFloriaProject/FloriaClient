@@ -21,5 +21,6 @@ enum class SettingType {
     BOOLEAN,
     ENUM,
     RANGE,
-    COLOR
+    COLOR,
+    LIST
 }
