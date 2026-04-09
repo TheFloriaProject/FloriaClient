@@ -27,6 +27,7 @@ else
     git diff "$LAST_CHANGELOG_COMMIT" HEAD -- CHANGELOG.md \
         | grep '^+' \
         | grep -v '^+++' \
+        | grep -v '^+#' \
         | sed 's/^+//' \
         > release_notes.txt
 fi
