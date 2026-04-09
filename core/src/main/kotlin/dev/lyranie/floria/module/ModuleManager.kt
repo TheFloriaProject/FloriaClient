@@ -39,7 +39,9 @@ import dev.lyranie.floria.module.movement.FlyModule
 import dev.lyranie.floria.module.movement.InventoryMoveModule
 import dev.lyranie.floria.module.movement.SneakModule
 import dev.lyranie.floria.module.movement.SpeedModule
+import dev.lyranie.floria.module.movement.SpiderModule
 import dev.lyranie.floria.module.movement.SprintModule
+import dev.lyranie.floria.module.movement.StepModule
 import dev.lyranie.floria.module.network.PacketDelayModule
 import dev.lyranie.floria.module.network.PausePacketsModule
 import dev.lyranie.floria.module.render.BlockEspModule
@@ -90,6 +92,8 @@ object ModuleManager {
         modules.add(SprintModule())
         modules.add(AirJumpModule())
         modules.add(AutoWalkModule())
+        modules.add(SpiderModule())
+        modules.add(StepModule())
 
         /* network */
         modules.add(PacketDelayModule())

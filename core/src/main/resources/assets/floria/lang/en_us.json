@@ -25,6 +25,8 @@
     "module.floria.chestStealer": "Chest Stealer",
     "module.floria.dataSize": "Data Size",
     "module.floria.blockEsp": "Block ESP",
+    "module.floria.spider": "Spider",
+    "module.floria.step": "Step",
 
     "description.floria.autoArmor": "Automatically equips the best armor in your inventory",
     "description.floria.autoLeave": "Automatically disconnects you when your health goes below the specified value",
@@ -50,6 +52,8 @@
     "description.floria.chestStealer": "Automatically takes every item out of a chest",
     "description.floria.dataSize": "Displays the size of the data stored in the container item",
     "description.floria.blockEsp": "Renders an outline around the selected blocks",
+    "description.floria.spider": "Allows the player to walk up walls like a spider",
+    "description.floria.step": "Allows the player to step up a block without jumping",
 
     "key.category.floria.main": "Floria",
 

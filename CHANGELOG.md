@@ -9,6 +9,8 @@
 - Added `README.md`
 - Added `lint` workflow
 - Added `publish` workflow
+- Added Spider module
+- Added Step module
 
 # 0.1.0
 - Initial Commit
