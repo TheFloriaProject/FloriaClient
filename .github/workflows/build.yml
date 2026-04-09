@@ -29,6 +29,10 @@ jobs:
                     cache: 'npm'
                     cache-dependency-path: screen/package-lock.json
 
+            -   name: Install screen dependencies
+                working-directory: screen
+                run: npm install
+
             -   name: Make Gradle wrapper executable
                 run: chmod +x ./gradlew
 
