@@ -8,6 +8,7 @@
 - Added `build` workflow
 - Added `README.md`
 - Added `lint` workflow
+- Test line for changelog
 
 # 0.1.0
 - Initial Commit
