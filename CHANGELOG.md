@@ -8,6 +8,7 @@
 - Added `build` workflow
 - Added `README.md`
 - Added `lint` workflow
+- Added `publish` workflow
 
 # 0.1.0
 - Initial Commit
