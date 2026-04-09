@@ -11,6 +11,8 @@
     },
     "client": [
         "ChatScreenMixin",
+        "ClientConnectionMixin",
+        "ClientConnectionMixinStatic",
         "ClientPlayerEntityMixin",
         "ClientPlayNetworkHandlerMixin",
         "ItemMixin",

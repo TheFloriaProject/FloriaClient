@@ -21,6 +21,7 @@ import dev.lyranie.floria.api.event.ClientEvent
 import dev.lyranie.floria.module.ModuleManager
 
 object EventHandler {
+    @JvmStatic
     fun handleEvent(event: ClientEvent) {
         ModuleManager.handleEvent(event)
     }
