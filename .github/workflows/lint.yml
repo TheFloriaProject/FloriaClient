@@ -1,0 +1,35 @@
+name: Lint
+on:
+    pull_request:
+        branches:
+            - master
+
+jobs:
+    lint:
+        name: KtLint & Detekt
+        runs-on: ubuntu-latest
+
+        steps:
+            -   name: Checkout repository
+                uses: actions/checkout@v4
+
+            -   name: Set up Java 21
+                uses: actions/setup-java@v4
+                with:
+                    java-version: '21'
+                    distribution: 'temurin'
+
+            -   name: Make Gradle wrapper executable
+                run: chmod +x ./gradlew
+
+            -   name: Run KtLint
+                run: ./gradlew ktlintCheck
+                env:
+                    REPSY_USERNAME: ${{ secrets.REPSY_USERNAME }}
+                    REPSY_PASSWORD: ${{ secrets.REPSY_PASSWORD }}
+
+            -   name: Run Detekt
+                run: ./gradlew detekt
+                env:
+                    REPSY_USERNAME: ${{ secrets.REPSY_USERNAME }}
+                    REPSY_PASSWORD: ${{ secrets.REPSY_PASSWORD }}
