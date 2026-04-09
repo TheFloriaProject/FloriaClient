@@ -17,6 +17,7 @@
 
 package dev.lyranie.floria
 
+import com.cinemamod.mcef.MCEF
 import dev.lyranie.floria.category.CategoryManager
 import dev.lyranie.floria.command.CommandManager
 import dev.lyranie.floria.module.ModuleManager
@@ -59,6 +60,8 @@ class FloriaClient : ClientModInitializer {
 
         ScreenEvents.BEFORE_INIT.register { _, screen, _, _ ->
             ScreenEvents.afterRender(screen).register { _, drawContext, _, _, _ ->
+                if (!MCEF.isInitialized()) return@register
+
                 NotificationOverlay.init(drawContext)
                 NotificationOverlay.draw(drawContext)
             }

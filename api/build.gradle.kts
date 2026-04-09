@@ -28,6 +28,10 @@ publishing {
     }
 }
 
+artifacts {
+    add("default", tasks.named("remapJar"))
+}
+
 tasks.build {
     dependsOn(tasks.named("ktlintCheck"))
     dependsOn(tasks.named("detekt"))

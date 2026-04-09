@@ -1,5 +1,7 @@
+evaluationDependsOn(":api")
+
 dependencies {
-    modImplementation(project(":api"))
+    implementation(project(":api", "namedElements"))
     include(project(":api"))
 
     implementation("io.github.classgraph:classgraph:${project.property("classgraph_version")}")

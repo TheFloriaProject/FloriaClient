@@ -26,7 +26,7 @@ jobs:
                 run: chmod +x ./gradlew
 
             -   name: Build mod
-                run: ./gradlew :api:remapJar :core:build
+                run: ./gradlew build
                 env:
                     REPSY_USERNAME: ${{ secrets.REPSY_USERNAME }}
                     REPSY_PASSWORD: ${{ secrets.REPSY_PASSWORD }}
