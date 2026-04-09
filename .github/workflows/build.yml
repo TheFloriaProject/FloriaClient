@@ -51,14 +51,7 @@ jobs:
 
             -   name: Extract new changelog entries
                 id: changelog
-                run: |
-                    git diff HEAD~1 HEAD -- CHANGELOG.md \
-                        | grep '^+' \
-                        | grep -v '^+++' \
-                        | sed 's/^+//' \
-                        > release_notes.txt
-                    echo "Release notes:"
-                    cat release_notes.txt
+                run: bash scripts/changelog.sh
 
             -   name: Upload build artifact
                 uses: actions/upload-artifact@v4
