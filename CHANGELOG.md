@@ -9,6 +9,7 @@
 - Added `README.md`
 - Added `lint` workflow
 - Test line for changelog
+- Another test
 
 # 0.1.0
 - Initial Commit
