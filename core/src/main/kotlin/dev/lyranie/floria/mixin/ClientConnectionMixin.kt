@@ -15,15 +15,28 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-package dev.lyranie.floria.event.events
+package dev.lyranie.floria.mixin
 
-import dev.lyranie.floria.api.event.ClientEvent
+import dev.lyranie.floria.event.EventHandler
+import dev.lyranie.floria.event.events.PacketEvent
+import io.netty.channel.ChannelFutureListener
+import net.minecraft.network.ClientConnection
 import net.minecraft.network.packet.Packet
+import org.spongepowered.asm.mixin.Mixin
+import org.spongepowered.asm.mixin.injection.At
+import org.spongepowered.asm.mixin.injection.Inject
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo
 
-class PacketEvent(val packet: Packet<*>, val type: Type, callbackInfo: CallbackInfo) : ClientEvent(callbackInfo) {
-    enum class Type {
-        INCOMING,
-        OUTGOING
+@Mixin(ClientConnection::class)
+class ClientConnectionMixin {
+    @Suppress("UNUSED_PARAMETER")
+    @Inject(method = ["sendImmediately"], at = [At("TAIL")], cancellable = true)
+    fun sendImmediately(
+        packet: Packet<*>,
+        listener: ChannelFutureListener?,
+        flush: Boolean,
+        callbackInfo: CallbackInfo,
+    ) {
+        EventHandler.handleEvent(PacketEvent(packet, PacketEvent.Type.OUTGOING, callbackInfo))
     }
 }

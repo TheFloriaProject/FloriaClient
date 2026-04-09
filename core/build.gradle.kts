@@ -16,6 +16,14 @@ java {
     withSourcesJar()
 }
 
+sourceSets {
+    main {
+        java {
+            srcDirs("src/main/kotlin")
+        }
+    }
+}
+
 publishing {
     publications {
         create<MavenPublication>("mavenJava") {

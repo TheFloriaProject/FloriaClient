@@ -11,6 +11,8 @@
 - Added `publish` workflow
 - Added Spider module
 - Added Step module
+- Added Packet logger module
+- Fixed Sprint module
 
 # 0.1.0
 - Initial Commit

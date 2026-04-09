@@ -43,6 +43,7 @@ import dev.lyranie.floria.module.movement.SpiderModule
 import dev.lyranie.floria.module.movement.SprintModule
 import dev.lyranie.floria.module.movement.StepModule
 import dev.lyranie.floria.module.network.PacketDelayModule
+import dev.lyranie.floria.module.network.PacketLoggerModule
 import dev.lyranie.floria.module.network.PausePacketsModule
 import dev.lyranie.floria.module.render.BlockEspModule
 import dev.lyranie.floria.module.render.CustomGuiModule
@@ -98,6 +99,7 @@ object ModuleManager {
         /* network */
         modules.add(PacketDelayModule())
         modules.add(PausePacketsModule())
+        modules.add(PacketLoggerModule())
 
         /* render */
         modules.add(FullBrightModule())
