@@ -42,7 +42,7 @@ class Floria : ModInitializer {
     companion object {
         const val MOD_ID = "floria"
         const val NAME = "Floria"
-        const val VERSION = "0.1.0"
+        const val VERSION = "0.2.0"
         const val TITLE = "$NAME v$VERSION"
 
         val logger: Logger = LogManager.getLogger(NAME)

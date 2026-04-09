@@ -7,6 +7,7 @@
 - Added list setting
 - Added `build` workflow
 - Added `README.md`
+- Added `lint` workflow
 
 # 0.1.0
 - Initial Commit

@@ -49,6 +49,17 @@ jobs:
                     echo "version=$VERSION" | tee -a $GITHUB_OUTPUT
                     echo "short_sha=$(git rev-parse --short HEAD)" | tee -a $GITHUB_OUTPUT
 
+            -   name: Extract new changelog entries
+                id: changelog
+                run: |
+                    git diff HEAD~1 HEAD -- CHANGELOG.md \
+                        | grep '^+' \
+                        | grep -v '^+++' \
+                        | sed 's/^+//' \
+                        > release_notes.txt
+                    echo "Release notes:"
+                    cat release_notes.txt
+
             -   name: Upload build artifact
                 uses: actions/upload-artifact@v4
                 with:
@@ -60,7 +71,8 @@ jobs:
                 uses: softprops/action-gh-release@v2
                 with:
                     tag_name: v${{ steps.meta.outputs.version }}-latest
-                    name: Build ${{ steps.meta.outputs.short_sha }}
+                    name: build-${{ steps.meta.outputs.short_sha }}
+                    body_path: release_notes.txt
                     files: core/build/libs/*.jar
                     make_latest: true
                 env:
