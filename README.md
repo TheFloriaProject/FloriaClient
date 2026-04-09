@@ -21,13 +21,14 @@ development as straight forward as possible.
 
 Contributions to the project as a whole are always welcome and encouraged. If you run into any issues feel free to open
 an issue, or create a pull request with the solution. The project is held to a strict coding standard and naming rules.
-before pushing make sure to run the build task (which runs detekt and ktlint) to make sure the code is formatted.
+before pushing make sure to run the build task (which runs detekt and ktlint) to make sure the code is formatted. All
+files **must** contain this projects copyright notice.
 
 ## Authors
 
-- ### [lyranie](https://github.com/lyranie/)
+[lyranie](https://github.com/lyranie/)
 
 ## License
 
-### [GPL 3.0](https://www.gnu.org/licenses/gpl-3.0)
+[GPL 3.0](https://www.gnu.org/licenses/gpl-3.0)
 
