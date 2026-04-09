@@ -23,13 +23,15 @@ LAST_CHANGELOG_COMMIT=$(git log --follow -n 1 --skip 1 --pretty=format:"%H" -- C
 if [ -z "$LAST_CHANGELOG_COMMIT" ]; then
     echo "No previous changelog commit found, using full file"
     cp CHANGELOG.md release_notes.txt
-else
+elif ! git diff --quiet "$LAST_CHANGELOG_COMMIT" HEAD -- CHANGELOG.md; then
     git diff "$LAST_CHANGELOG_COMMIT" HEAD -- CHANGELOG.md \
         | grep '^+' \
         | grep -v '^+++' \
         | grep -v '^+#' \
         | sed 's/^+//' \
         > release_notes.txt || true
+else
+    : > release_notes.txt
 fi
 
 echo "Release notes:"
