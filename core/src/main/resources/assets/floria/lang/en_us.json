@@ -30,6 +30,7 @@
     "module.floria.packetLogger": "Packet Logger",
     "module.floria.safeWalk": "Safe Walk",
     "module.floria.clientSpoof": "Client Spoof",
+    "module.floria.fastBreak": "Fast Break",
 
     "description.floria.autoArmor": "Automatically equips the best armor in your inventory",
     "description.floria.autoLeave": "Automatically disconnects you when your health goes below the specified value",
@@ -60,6 +61,7 @@
     "description.floria.packetLogger": "Logs incoming and outgoing packets",
     "description.floria.safeWalk": "Allows the player to walk on block edges without falling off",
     "description.floria.clientSpoof": "Lets you change the brand that gets sent to the server",
+    "description.floria.fastBreak": "Lets you break blocks faster",
 
     "key.category.floria.main": "Floria",
 
