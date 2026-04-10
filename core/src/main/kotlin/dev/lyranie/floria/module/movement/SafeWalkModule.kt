@@ -15,17 +15,17 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-package dev.lyranie.floria.event.events
+package dev.lyranie.floria.module.movement
 
 import dev.lyranie.floria.api.event.ClientEvent
-import io.netty.channel.Channel
-import net.minecraft.network.packet.Packet
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo
+import dev.lyranie.floria.api.module.ClientCategory
+import dev.lyranie.floria.api.module.ClientModule
+import dev.lyranie.floria.event.events.ClipAtLedgeEvent
 
-class PacketEvent(val packet: Packet<*>, val type: Type, val channel: Channel?, callbackInfo: CallbackInfo) :
-    ClientEvent(callbackInfo) {
-    enum class Type {
-        INCOMING,
-        OUTGOING
+class SafeWalkModule : ClientModule("safeWalk", ClientCategory.MOVEMENT) {
+    override fun onEvent(event: ClientEvent) {
+        if (event !is ClipAtLedgeEvent) return
+
+        event.callbackInfoReturnable.returnValue = true
     }
 }

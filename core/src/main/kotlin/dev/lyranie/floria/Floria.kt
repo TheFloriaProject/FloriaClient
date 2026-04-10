@@ -30,6 +30,7 @@ import dev.lyranie.floria.util.type.ClientSettingDeserializer
 import dev.lyranie.floria.util.type.TextAdapter
 import net.fabricmc.api.ModInitializer
 import net.fabricmc.loader.api.FabricLoader
+import net.kyori.adventure.text.minimessage.MiniMessage
 import net.minecraft.client.MinecraftClient
 import net.minecraft.text.Text
 import org.apache.logging.log4j.LogManager
@@ -58,6 +59,7 @@ class Floria : ModInitializer {
         val gson = gsonBuilder
             .excludeFieldsWithoutExposeAnnotation()
             .create()!!
+        val miniMessage = MiniMessage.miniMessage()
 
         fun stop(client: MinecraftClient) {
             client.scheduleStop()

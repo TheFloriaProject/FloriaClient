@@ -32,6 +32,6 @@ public class ClientConnectionMixinStatic {
     @SuppressWarnings("UNUSED_PARAMETER")
     @Inject(method = "handlePacket", at = @At("TAIL"))
     private static <T extends PacketListener> void handlePacket(Packet<T> packet, PacketListener listener, CallbackInfo callbackInfo) {
-        EventHandler.handleEvent(new PacketEvent(packet, PacketEvent.Type.INCOMING, callbackInfo));
+        EventHandler.handleEvent(new PacketEvent(packet, PacketEvent.Type.INCOMING, null, callbackInfo));
     }
 }

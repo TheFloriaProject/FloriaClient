@@ -18,14 +18,7 @@
 package dev.lyranie.floria.event.events
 
 import dev.lyranie.floria.api.event.ClientEvent
-import io.netty.channel.Channel
-import net.minecraft.network.packet.Packet
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable
 
-class PacketEvent(val packet: Packet<*>, val type: Type, val channel: Channel?, callbackInfo: CallbackInfo) :
-    ClientEvent(callbackInfo) {
-    enum class Type {
-        INCOMING,
-        OUTGOING
-    }
-}
+class ClipAtLedgeEvent(val callbackInfoReturnable: CallbackInfoReturnable<Boolean>) :
+    ClientEvent(callbackInfoReturnable)

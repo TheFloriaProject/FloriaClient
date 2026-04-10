@@ -12,6 +12,13 @@
 - Added Spider module
 - Added Step module
 - Added Packet logger module
+- Added Safe walk module
+- Added Packet spoof module
+
+
+- Update command system to use kyori adventure api
+
+
 - Fixed Sprint module
 
 # 0.1.0

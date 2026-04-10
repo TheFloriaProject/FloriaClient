@@ -18,6 +18,7 @@
         "ItemMixin",
         "KeyboardMixin",
         "MinecraftClientMixin",
+        "PlayerEntityMixin",
         "ScreenMixin",
         "SplashOverlayMixin",
         "WorldRendererMixin",

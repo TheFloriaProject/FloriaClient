@@ -26,6 +26,7 @@ import dev.lyranie.floria.module.combat.AutoLeaveModule
 import dev.lyranie.floria.module.exploit.AutoRespawnModule
 import dev.lyranie.floria.module.exploit.AutoclickerModule
 import dev.lyranie.floria.module.exploit.ChestStealerModule
+import dev.lyranie.floria.module.exploit.ClientSpoofModule
 import dev.lyranie.floria.module.exploit.NoFallDamageModule
 import dev.lyranie.floria.module.exploit.NoHungerModule
 import dev.lyranie.floria.module.exploit.PortalGuiModule
@@ -37,6 +38,7 @@ import dev.lyranie.floria.module.movement.BunnyHopModule
 import dev.lyranie.floria.module.movement.DolphinModule
 import dev.lyranie.floria.module.movement.FlyModule
 import dev.lyranie.floria.module.movement.InventoryMoveModule
+import dev.lyranie.floria.module.movement.SafeWalkModule
 import dev.lyranie.floria.module.movement.SneakModule
 import dev.lyranie.floria.module.movement.SpeedModule
 import dev.lyranie.floria.module.movement.SpiderModule
@@ -78,6 +80,7 @@ object ModuleManager {
         modules.add(NoHungerModule())
         modules.add(PortalGuiModule())
         modules.add(ChestStealerModule())
+        modules.add(ClientSpoofModule())
 
         /* misc */
         modules.add(PanicModule())
@@ -95,6 +98,7 @@ object ModuleManager {
         modules.add(AutoWalkModule())
         modules.add(SpiderModule())
         modules.add(StepModule())
+        modules.add(SafeWalkModule())
 
         /* network */
         modules.add(PacketDelayModule())

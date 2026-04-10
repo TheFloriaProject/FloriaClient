@@ -27,6 +27,9 @@
     "module.floria.blockEsp": "Block ESP",
     "module.floria.spider": "Spider",
     "module.floria.step": "Step",
+    "module.floria.packetLogger": "Packet Logger",
+    "module.floria.safeWalk": "Safe Walk",
+    "module.floria.clientSpoof": "Client Spoof",
 
     "description.floria.autoArmor": "Automatically equips the best armor in your inventory",
     "description.floria.autoLeave": "Automatically disconnects you when your health goes below the specified value",
@@ -54,12 +57,14 @@
     "description.floria.blockEsp": "Renders an outline around the selected blocks",
     "description.floria.spider": "Allows the player to walk up walls like a spider",
     "description.floria.step": "Allows the player to step up a block without jumping",
+    "description.floria.packetLogger": "Logs incoming and outgoing packets",
+    "description.floria.safeWalk": "Allows the player to walk on block edges without falling off",
+    "description.floria.clientSpoof": "Lets you change the brand that gets sent to the server",
 
     "key.category.floria.main": "Floria",
 
-    "message.floria.unknown_command": "Unable to find command |",
-    "message.floria.unknown_module": "Unable to find module |%s|(%s)",
-    "message.floria.command.toggle.usage": "Usage: || <moduleId>",
-    "message.floria.command.toggle.success": "Toggled module %s(%s): ",
-    "message.floria.command.toggle.failure": "Cannot find module |%s"
+    "message.floria.unknown_command": "Unable to find command <#38c5d8>%s",
+    "message.floria.command.toggle.usage": "Usage: <#38c5d8>%s<reset> <moduleId>",
+    "message.floria.command.toggle.success": "Toggled module %s(%s): <#38c5d8>%s",
+    "message.floria.command.toggle.failure": "Cannot find module <#38c5d8>%s"
 }

@@ -56,6 +56,4 @@ open class ClientModule(
             onDisable()
         }
     }
-
-    fun shouldRender() = toggled
 }

@@ -17,8 +17,15 @@
 
 package dev.lyranie.floria.util
 
+import com.google.gson.JsonParser
+import com.google.gson.JsonSyntaxException
+import com.mojang.serialization.JsonOps
+import dev.lyranie.floria.Floria
+import net.kyori.adventure.text.Component
+import net.kyori.adventure.text.serializer.gson.GsonComponentSerializer
 import net.minecraft.client.network.ClientPlayerEntity
 import net.minecraft.text.Text
+import net.minecraft.text.TextCodecs
 
 object ChatUtils {
     object Color {
@@ -29,5 +36,15 @@ object ChatUtils {
 
     fun sendMessage(player: ClientPlayerEntity, content: String = "", color: Int = -1) {
         player.sendMessage(Text.literal(content).withColor(color), false)
+    }
+
+    fun sendMessage(player: ClientPlayerEntity, content: Component) {
+        val json = GsonComponentSerializer.gson().serialize(content)
+        try {
+            val text = TextCodecs.CODEC.parse(JsonOps.INSTANCE, JsonParser.parseString(json)).getOrThrow()
+            player.sendMessage(text, false)
+        } catch (e: JsonSyntaxException) {
+            Floria.logger.error(e.message, e)
+        }
     }
 }

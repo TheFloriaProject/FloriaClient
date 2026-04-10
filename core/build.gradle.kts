@@ -1,10 +1,12 @@
+repositories {
+    maven("https://s01.oss.sonatype.org/content/repositories/snapshots/")
+}
+
 dependencies {
-    implementation(project(":api", "namedElements"))
-    include(project(":api"))
+    implementation(include(project(":api", "namedElements"))!!)
+    implementation(include("io.github.classgraph:classgraph:${project.property("classgraph_version")}")!!)
 
-    implementation("io.github.classgraph:classgraph:${project.property("classgraph_version")}")
-    include("io.github.classgraph:classgraph:${project.property("classgraph_version")}")
-
+    modImplementation(include("net.kyori:adventure-platform-fabric:${project.property("adventure_version")}")!!)
     modApi("de.keksuccino:mcef-fabric:${project.property("mcef_version")}")
 }
 

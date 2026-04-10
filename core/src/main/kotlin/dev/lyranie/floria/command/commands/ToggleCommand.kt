@@ -24,7 +24,7 @@ import dev.lyranie.floria.util.ChatUtils
 import net.minecraft.client.network.ClientPlayerEntity
 import net.minecraft.text.Text
 
-class ToggleCommand : ClientCommand("toggle",) {
+class ToggleCommand : ClientCommand("toggle") {
     companion object {
         private val USAGE_MESSAGE by lazy { Text.translatable("message.${Floria.MOD_ID}.command.toggle.usage").string }
         private val SUCCESS_MESSAGE by lazy {
@@ -37,12 +37,9 @@ class ToggleCommand : ClientCommand("toggle",) {
 
     override fun execute(player: ClientPlayerEntity, args: Array<String>) {
         if (args.size != 1) {
-            val parts = USAGE_MESSAGE.split("|")
-            val message = Text.literal(parts[0])
-                .append(Text.literal(".toggle").withColor(ChatUtils.Color.BG))
-                .append(Text.literal(parts[2]))
+            val message = Floria.miniMessage.deserialize(USAGE_MESSAGE.format(".$name"))
 
-            player.sendMessage(message, false)
+            ChatUtils.sendMessage(player, message)
             return
         }
 
@@ -50,12 +47,9 @@ class ToggleCommand : ClientCommand("toggle",) {
         val module = ModuleManager.modules.firstOrNull { it.id == moduleId }
 
         if (module == null) {
-            val parts = FAILURE_MESSAGE.split("|")
-            val message = Text.literal(parts[0])
-                .append(Text.literal(parts[1].format(moduleId)).withColor(ChatUtils.Color.BG))
+            val message = Floria.miniMessage.deserialize(FAILURE_MESSAGE.format(moduleId))
 
-            player.sendMessage(message, false)
-
+            ChatUtils.sendMessage(player, message)
             return
         }
 
@@ -66,10 +60,9 @@ class ToggleCommand : ClientCommand("toggle",) {
         } else {
             "disabled"
         }
-        val message = Text.literal(SUCCESS_MESSAGE.format(moduleId, module.name))
-            .append(Text.literal(status).withColor(ChatUtils.Color.BG))
+        val message = Floria.miniMessage.deserialize(SUCCESS_MESSAGE.format(moduleId, module.name, status))
 
-        player.sendMessage(message, false)
+        ChatUtils.sendMessage(player, message)
     }
 
     override fun complete(args: Array<String>): List<String> {

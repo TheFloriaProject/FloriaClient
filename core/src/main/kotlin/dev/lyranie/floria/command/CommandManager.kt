@@ -94,11 +94,9 @@ object CommandManager {
 
         if (command == null) {
             val translation = Text.translatable("message.${Floria.MOD_ID}.unknown_command").string
-            val messageParts = translation.split("|")
-            val message = Text.literal(messageParts[0])
-                .append(Text.literal(commandName).withColor(ChatUtils.Color.BG))
+            val message = Floria.miniMessage.deserialize(translation.format(commandName))
 
-            player.sendMessage(message, false)
+            ChatUtils.sendMessage(player, message)
             return
         }
 

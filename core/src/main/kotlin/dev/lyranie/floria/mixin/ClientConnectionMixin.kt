@@ -19,24 +19,30 @@ package dev.lyranie.floria.mixin
 
 import dev.lyranie.floria.event.EventHandler
 import dev.lyranie.floria.event.events.PacketEvent
+import io.netty.channel.Channel
 import io.netty.channel.ChannelFutureListener
 import net.minecraft.network.ClientConnection
 import net.minecraft.network.packet.Packet
 import org.spongepowered.asm.mixin.Mixin
+import org.spongepowered.asm.mixin.Shadow
 import org.spongepowered.asm.mixin.injection.At
 import org.spongepowered.asm.mixin.injection.Inject
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo
 
 @Mixin(ClientConnection::class)
 class ClientConnectionMixin {
+    @JvmField
+    @Shadow
+    var channel: Channel? = null
+
     @Suppress("UNUSED_PARAMETER")
-    @Inject(method = ["sendImmediately"], at = [At("TAIL")], cancellable = true)
+    @Inject(method = ["sendImmediately"], at = [At("HEAD")], cancellable = true)
     fun sendImmediately(
         packet: Packet<*>,
         listener: ChannelFutureListener?,
         flush: Boolean,
         callbackInfo: CallbackInfo,
     ) {
-        EventHandler.handleEvent(PacketEvent(packet, PacketEvent.Type.OUTGOING, callbackInfo))
+        EventHandler.handleEvent(PacketEvent(packet, PacketEvent.Type.OUTGOING, channel, callbackInfo))
     }
 }
