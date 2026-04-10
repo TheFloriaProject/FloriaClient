@@ -46,10 +46,7 @@ jobs:
 
             -   name: Get mod version and short hash
                 id: meta
-                run: |
-                    VERSION=$(./gradlew properties -q | grep "^version:" | awk '{print $2}' | tr -d '[:space:]')
-                    echo "version=$VERSION" | tee -a $GITHUB_OUTPUT
-                    echo "short_sha=$(git rev-parse --short HEAD)" | tee -a $GITHUB_OUTPUT
+                run: bash scripts/version.sh
 
             -   name: Extract new changelog entries
                 id: changelog
