@@ -5,6 +5,67 @@
 <h1 align="center">Floria Client</h1>
 <p align="center">A hacked client mod for Minecraft</p>
 
+## Modules
+
+<details>
+<summary>Combat</summary>
+
+- AutoArmor
+- AutoLeave
+</details>
+
+<details>
+<summary>Exploit</summary>
+
+- Autoclicker
+- AutoRespawn
+- ChestStealer
+- ClientSpoof
+- NoFallDamage
+- NoHunger
+- PortalGui
+</details>
+
+<details>
+<summary>Misc</summary>
+
+- DataSize
+- Panic
+</details>
+
+<details>
+<summary>Movement</summary>
+
+- AirJump
+- AutoWalk
+- BunnyHop
+- Dolphin
+- Fly (VANILLA, VELOCITY)
+- InventoryMove
+- SafeWalk
+- Sneak (VANILLA, PACKET)
+- Speed
+- Spider
+- Sprint
+- Step
+</details>
+
+<details>
+<summary>Network</summary>
+
+- PacketDelay
+- PacketLogger
+- PausePackets
+</details>
+
+<details>
+<summary>Render</summary>
+
+- BlockEsp
+- CustomGui
+- FullBright
+</details>
+
 ## Project setup
 
 The project is split in two: The api, and the implementation. The api is a separate gradle module from the
