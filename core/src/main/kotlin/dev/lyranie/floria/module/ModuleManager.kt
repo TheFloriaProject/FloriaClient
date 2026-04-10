@@ -27,6 +27,7 @@ import dev.lyranie.floria.module.exploit.AutoRespawnModule
 import dev.lyranie.floria.module.exploit.AutoclickerModule
 import dev.lyranie.floria.module.exploit.ChestStealerModule
 import dev.lyranie.floria.module.exploit.ClientSpoofModule
+import dev.lyranie.floria.module.exploit.FastBreakModule
 import dev.lyranie.floria.module.exploit.NoFallDamageModule
 import dev.lyranie.floria.module.exploit.NoHungerModule
 import dev.lyranie.floria.module.exploit.PortalGuiModule
@@ -81,6 +82,7 @@ object ModuleManager {
         modules.add(PortalGuiModule())
         modules.add(ChestStealerModule())
         modules.add(ClientSpoofModule())
+        modules.add(FastBreakModule())
 
         /* misc */
         modules.add(PanicModule())

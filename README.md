@@ -24,6 +24,7 @@
 - NoFallDamage
 - NoHunger
 - PortalGui
+- FastBreak
 </details>
 
 <details>

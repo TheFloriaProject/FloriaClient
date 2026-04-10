@@ -14,6 +14,7 @@
 - Added Packet logger module
 - Added Safe walk module
 - Added Packet spoof module
+- Added Fast break module
 
 
 - Update command system to use kyori adventure api

@@ -19,6 +19,7 @@ package dev.lyranie.floria.mixin
 
 import dev.lyranie.floria.Floria
 import dev.lyranie.floria.event.EventHandler
+import dev.lyranie.floria.event.events.ClientTickEvent
 import dev.lyranie.floria.event.events.DisconnectEvent
 import dev.lyranie.floria.event.events.SetScreenEvent
 import net.minecraft.client.MinecraftClient
@@ -45,5 +46,10 @@ class MinecraftClientMixin {
     @Inject(method = ["getWindowTitle"], at = [At("HEAD")], cancellable = true)
     fun getWindowTitle(callbackInfo: CallbackInfoReturnable<String>) {
         callbackInfo.returnValue = Floria.TITLE
+    }
+
+    @Inject(method = ["tick"], at = [At("TAIL")])
+    fun tick(callbackInfo: CallbackInfo) {
+        EventHandler.handleEvent(ClientTickEvent(callbackInfo))
     }
 }
