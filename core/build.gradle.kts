@@ -4,7 +4,6 @@ repositories {
 
 dependencies {
     implementation(include(project(":api", "namedElements"))!!)
-    implementation(include("io.github.classgraph:classgraph:${project.property("classgraph_version")}")!!)
 
     modImplementation(include("net.kyori:adventure-platform-fabric:${project.property("adventure_version")}")!!)
     modApi("de.keksuccino:mcef-fabric:${project.property("mcef_version")}")
